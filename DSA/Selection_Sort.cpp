@@ -26,7 +26,7 @@ int main()
 
     for (int j = i + 1; j < n; j++)
     {
-      if (arr[j] > arr[idx])
+      if (arr[j] < arr[idx])
       {
         idx = j;
       }
