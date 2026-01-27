@@ -21,7 +21,7 @@ int search_in_rotated_sorted_array(int arr[], int n, int target)
       { // checking target exist in left half
         end = mid - 1;
       }
-      else
+      else 
       {
         start = mid + 1;
       }
