@@ -1,13 +1,11 @@
 #include <iostream>
 using namespace std;
-int main()
-{
 
-  int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-  int n = sizeof(arr) / sizeof(arr[0]);
+int Sec_Max(int arr[], int n)
+{
   int fstMax = INT8_MIN;
 
-  for (int i = 1; i <= n; i++)
+  for (int i = 0; i < n; i++)
   {
     if (arr[i] > fstMax)
     {
@@ -15,16 +13,26 @@ int main()
     }
   }
   // second max
-  int secMax = INT8_MIN;
+  int secMax = -1;
 
-  for (int j = 1; j <= n; j++)
+  for (int j = 0; j < n; j++)
   {
     if (arr[j] != fstMax)
     {
       secMax = max(arr[j], secMax);
     }
   }
-  cout << secMax;
+  return secMax;
+}
+
+int main()
+{
+
+  int arr[] = {10, 10, 10};
+  int n = sizeof(arr) / sizeof(arr[0]);
+
+  int ans = Sec_Max(arr, n);
+  cout << ans;
 
   return 0;
 }

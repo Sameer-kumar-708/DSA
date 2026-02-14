@@ -20,7 +20,7 @@ int main()
   //   swap(arr[index], arr[i]);
   // }
 
-  for (int i = 0; i < n - 1; i++)
+  for (int i = 0; i < n; i++)
   {
     int idx = i;
 
@@ -28,9 +28,9 @@ int main()
     {
       if (arr[j] < arr[idx])
       {
-        idx = j;
+        // idx = j;
+        swap(arr[j], arr[idx]);
       }
-      swap(arr[j], arr[idx]);
     }
   }
 
