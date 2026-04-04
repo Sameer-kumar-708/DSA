@@ -1,27 +1,23 @@
 #include <iostream>
 using namespace std;
 
-void print(int arr[], int index, int n)
+int print(int arr[], int index, int n)
 {
 
   if (index == n)
-  {
-    return;
-  }
+    return 0;
 
-  print(arr, index + 1, n);
-  cout << arr[index] << endl;
+  int sum = arr[index] + print(arr, index + 1, n);
+  return sum;
 }
 
 int main()
 {
 
   int arr[] = {1, 2, 3, 4, 5, 6};
-
   int n = sizeof(arr) / sizeof(arr[0]);
-  int index = 0;
 
-  print(arr, index, n);
-
+  int ans = print(arr, 0, n);
+  cout << ans;
   return 0;
 }

@@ -9,7 +9,7 @@ int fibanacii(int n)
     return 1;
   }
   if (n == 0)
-  { 
+  {
     return 0;
   }
 
@@ -21,6 +21,7 @@ int main()
 {
 
   int n;
+
   cin >> n;
   int ans = fibanacii(n);
   cout << ans;
