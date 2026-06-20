@@ -1,23 +1,25 @@
 #include <iostream>
 using namespace std;
 
-int print(int arr[], int index, int n)
+int ArraySum(int *arr, int n, int idx)
 {
 
-  if (index == n)
-    return 0;
+  if (arr[idx] == n)
+  {
+    return n;
+  }
 
-  int sum = arr[index] + print(arr, index + 1, n);
+  int sum = arr[idx] + ArraySum(arr, n, idx + 1);
+
   return sum;
 }
-
 int main()
 {
 
-  int arr[] = {1, 2, 3, 4, 5, 6};
+  int arr[] = {1, 2};
   int n = sizeof(arr) / sizeof(arr[0]);
-
-  int ans = print(arr, 0, n);
+  int ans = ArraySum(arr, n, 0);
   cout << ans;
+
   return 0;
 }
