@@ -1,10 +1,8 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
 class Node
 {
-
 public:
   int data;
   Node *next;
@@ -12,21 +10,39 @@ public:
   Node(int d)
   {
     data = d;
-    next = nullptr;
+    next = NULL;
   }
 };
 
 int main()
 {
-  vector<int> arr = {1, 2, 3, 4, 5};
 
-  Node *n1 = new Node(arr[0]);
-
+  int arr[] = {1, 2, 3, 4, 5, 5, 6};
+  int n = sizeof(arr) / sizeof(arr[0]);
   Node *Head = NULL, *Tail = NULL;
 
-  while (Head != nullptr)
+  for (int i = 0; i < n; i++)
   {
+    if (!Head)
+    {
+
+      Head = new Node(arr[0]);
+      Tail = Head;
+    }
+    else
+    {
+
+      Tail->next = new Node(arr[i]);
+      Tail = Tail->next;
+    }
   }
 
-  cout << n1->data << " " << n1->next;
+  while (Head != NULL)
+  {
+    cout << Head->data << "->";
+    Head = Head->next;
+  }
+  cout << "NULL" << endl;
+
+  return 0;
 }

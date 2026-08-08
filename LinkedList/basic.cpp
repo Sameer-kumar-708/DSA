@@ -7,28 +7,40 @@ public:
   int data;
   Node *next;
 
-  Node(int val) // constructor to initialize the node
+  Node(int value)
   {
-    data = val;
+    data = value;
     next = NULL;
   }
 };
-
 int main()
 {
-  Node *head = new Node(10);   // creating the head node with value 10
-  Node *second = new Node(20); // creating the second node with value 20
-  Node *third = new Node(30);  // creating the third node with value 30
+  int arr[5] = {2, 4, 6, 8, 10};
+  Node *Head = NULL, *Tail = NULL;
 
-  head->next = second;
-  second->next = third;
-
-  Node *temp = head; // temp variable to store the address of the current node
-  while (temp != NULL)
+  for (int i = 0; i < 5; i++)
   {
-    cout << temp->data << " -> "; // 10 -> 20 -> 30
-    temp = temp->next;            // move to 20
+    if (!Head)
+    {
+
+      Head = new Node(arr[0]);
+      Tail = Head;
+    }
+    else
+    {
+      Tail->next = new Node(arr[i]);
+      Tail = Tail->next;
+    }
   }
-  cout << "NULL" << endl;
+
+  Tail = Head;
+  while (Tail != NULL)
+  {
+
+    cout << Tail->data << "->";
+    Tail = Tail->next;
+  }
+  cout << "NULL" << " ";
+
   return 0;
 }
