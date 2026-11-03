@@ -1,21 +1,21 @@
 #include <iostream>
 using namespace std;
 
-int factorial(int n)
+int factoril(int n)
 {
 
-  if (n == 1)
+  if (n == 0 || n == 1)
   {
     return 1;
   }
 
-  return n * factorial(n - 1);
+  return n * factoril(n - 1);
 }
+
 int main()
 {
 
-  int ans = factorial(5);
-  cout << ans;
+  cout << factoril(5);
 
   return 0;
 }

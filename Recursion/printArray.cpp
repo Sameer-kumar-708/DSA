@@ -11,8 +11,8 @@ void printArray(int *arr, int n, int i)
 
   // cout << arr[i] << " ";
 
-  printArray(arr, n, i + 1);
   cout << arr[i] << " ";
+  printArray(arr, n, i + 1);
 }
 
 int main()
