@@ -1,42 +1,64 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class NODE{
-
-  public:
+class Node
+{
+public:
   int data;
-  NODE *next;
+  Node *next;
 
-  NODE(int d){
-
+  Node(int d)
+  {
     data = d;
-    next = NULL;
+    next = nullptr;
   }
 };
 
-int main(){
+int main()
+{
 
-  int arr[] = {1,2,3,4,5,6,7};
-  NODE* head = NULL;NODE* tail = NULL;
+  int arr[] = {1, 2, 3, 4, 5, 6};
+  Node *Head = nullptr;
+  Node *Tail = nullptr;
 
-  for(int i=0;i<7;i++){
-
-    if(!head){
-
-      head = new NODE(arr[0]);
-      tail = head;
-    }else{
-
-      tail->next = new NODE(arr[i]);
-      tail = tail->next;
-
+  for (int i = 0; i < 6; i++)
+  {
+    if (!Head)
+    {
+      Head = new Node(arr[0]);
+      Tail = Head;
     }
-
+    else
+    {
+      Tail->next = new Node(arr[i]);
+      Tail = Tail->next;
+    }
   }
 
+  // Deleting Node 3 from linked list
+  Node *temp = Head;
+  Node *prev = nullptr;
 
+  while (temp->data != 4)
+  {
+    prev = temp;
+    temp = temp->next;
+  }
 
+  // Delete node
+  if (temp != nullptr)
+  {
+    prev->next = temp->next;
+    delete temp;
+  }
+  Tail = Head;
+  while (Tail != nullptr)
+  {
+    cout << Tail->data << "->";
+    Tail = Tail->next;
+  }
 
+  cout << "NULL" << endl;
 
   return 0;
 }
